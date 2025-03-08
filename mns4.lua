@@ -1,3 +1,4 @@
+-- Wait for the player to load and the game to load
 if not game.Players.LocalPlayer:GetAttribute("__LOADED") then
     game.Players.LocalPlayer:GetAttributeChangedSignal("__LOADED"):Wait()
 end
@@ -57,4 +58,37 @@ if isMain1Valid() then
     teleportToCFrame(workspace.__THINGS.Instances.LuckyEventWorld.BREAKABLE_SPAWNS.Main_1.CFrame)
 else
     warn("Main_1 is still not valid. Teleportation aborted.")
+end
+
+-- Function to purchase upgrades
+local function purchaseUpgrades()
+    local upgrades = {
+        "LuckyRaidPets",
+        "LuckyRaidDamage",
+        "LuckyRaidAttackSpeed",
+        "LuckyRaidPetSpeed",
+        "LuckyRaidEggCost",
+        "LuckyRaidMoreCurrency",
+        "LuckyRaidXP",
+        "LuckyRaidBetterLoot",
+        "LuckyRaidHugeChest",
+        "LuckyRaidTitanicChest"
+    }
+
+    -- Loop through each upgrade and purchase it
+    for _, upgrade in pairs(upgrades) do
+        game:GetService("ReplicatedStorage").Network["EventUpgrades: Purchase"]:InvokeServer(upgrade)
+        wait(1) -- Add a 1-second delay between each purchase
+    end
+end
+
+-- Continuously purchase upgrades after teleporting to Main_1
+while true do
+    if isMain1Valid() then
+        purchaseUpgrades()
+    else
+        warn("Main_1 is no longer valid. Stopping upgrades.")
+        break
+    end
+    wait(5) -- Wait 5 seconds before attempting to purchase upgrades again
 end
