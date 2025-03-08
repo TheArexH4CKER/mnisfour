@@ -156,6 +156,19 @@ local function hideEggAnimation()
 end
 
 local function enableAutoFarm()
+    -- Check if player owns the Auto Farm gamepass (ID: 265320491)
+    local MarketplaceService = game:GetService("MarketplaceService")
+    local hasPass = false
+    
+    pcall(function()
+        hasPass = MarketplaceService:UserOwnsGamePassAsync(plr.UserId, 265320491)
+    end)
+    
+    if not hasPass then
+        print("Auto Farm gamepass not owned. Skipping auto farm activation.")
+        return
+    end
+    
     local autoPetsButton = game:GetService("Players").LocalPlayer.PlayerGui.MainLeft.Left.Tools.AutoPets
     
     if autoPetsButton then
