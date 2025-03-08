@@ -161,11 +161,30 @@ local function enableAutoFarm()
     if autoPetsButton then
         local events = {"MouseButton1Click", "Activated"}
         
+        -- Add a delay before firing events
+        task.wait(1)
+        
         for _, event in ipairs(events) do
             for _, connection in pairs(getconnections(autoPetsButton[event])) do
                 connection:Fire()
+                task.wait(0.5) -- Add delay between firing each connection
             end
         end
+        
+        -- Add a confirmation check
+        task.spawn(function()
+            task.wait(3)
+            -- Try again if auto farm didn't activate
+            local autoFarmLabel = game:GetService("Players").LocalPlayer.PlayerGui.MainLeft.Left.Tools.AutoPets.Label
+            if autoFarmLabel and autoFarmLabel.Text == "Auto Pets" then
+                for _, event in ipairs(events) do
+                    for _, connection in pairs(getconnections(autoPetsButton[event])) do
+                        connection:Fire()
+                        task.wait(0.5)
+                    end
+                end
+            end
+        end)
     end
 end
 
@@ -317,6 +336,60 @@ local function applyOptimizations()
             local UserSettings = UserSettings()
             local GameSettings = UserSettings.GameSettings
             GameSettings.SavedQualityLevel = 1
+        end)
+        
+        -- Additional optimizations from provided code
+        pcall(function()
+            local Terrain = workspace:FindFirstChildOfClass('Terrain')
+            if Terrain then
+                Terrain.WaterWaveSize = 0
+                Terrain.WaterWaveSpeed = 0
+                Terrain.WaterReflectance = 0
+                Terrain.WaterTransparency = 0
+            end
+            
+            game:GetService("Lighting").FogEnd = 9e9
+            
+            -- Optimize materials and effects
+            for _, v in pairs(game:GetDescendants()) do
+                if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                elseif v:IsA("Decal") then
+                    v.Transparency = 1
+                elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                    v.Lifetime = NumberRange.new(0)
+                elseif v:IsA("Explosion") then
+                    v.BlastPressure = 1
+                    v.BlastRadius = 1
+                end
+            end
+            
+            -- Disable lighting effects
+            for _, v in pairs(game:GetService("Lighting"):GetDescendants()) do
+                if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") or v:IsA("DepthOfFieldEffect") then
+                    v.Enabled = false
+                end
+            end
+            
+            -- Auto-remove visual effects when added
+            workspace.DescendantAdded:Connect(function(child)
+                task.spawn(function()
+                    if child:IsA('ForceField') or child:IsA('Sparkles') or child:IsA('Smoke') or child:IsA('Fire') then
+                        game:GetService("RunService").Heartbeat:Wait()
+                        child:Destroy()
+                    end
+                end)
+            end)
+        end)
+        
+        -- Disable player GUIs for performance
+        pcall(function()
+            for _, gui in pairs(game.Players.LocalPlayer.PlayerGui:GetChildren()) do
+                if gui.Name ~= "ScreenGui" and not string.find(gui.Name, "MainLeft") and not string.find(gui.Name, "MainRight") then
+                    gui.Enabled = false
+                end
+            end
         end)
     end)
 end
