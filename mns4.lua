@@ -1,3 +1,73 @@
+-- Create a ScreenGui to hold the GUI elements
+local screenGui = Instance.new("ScreenGui")
+screenGui.IgnoreGuiInset = true -- Ensures the GUI covers the entire screen, including the top
+screenGui.ResetOnSpawn = false -- Prevent the GUI from resetting on player respawn
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Create a Frame to cover the entire screen
+local backgroundFrame = Instance.new("Frame")
+backgroundFrame.Size = UDim2.new(1, 0, 1, 0) -- Full screen
+backgroundFrame.Position = UDim2.new(0, 0, 0, 0) -- Top-left corner
+backgroundFrame.BackgroundColor3 = Color3.new(0, 0, 0) -- Black background
+backgroundFrame.BorderSizePixel = 0
+backgroundFrame.Parent = screenGui
+
+-- Create a TextLabel for the "Counter Event Script" title
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Size = UDim2.new(0, 400, 0, 50) -- Width: 400, Height: 50
+titleLabel.Position = UDim2.new(0.5, -200, 0.25, -25) -- Centered horizontally, 25% from the top
+titleLabel.BackgroundTransparency = 1 -- Transparent background
+titleLabel.Text = "Counter And Señor Meowers's"
+titleLabel.TextColor3 = Color3.new(1, 1, 1) -- White text
+titleLabel.TextScaled = true -- Automatically scale text to fit
+titleLabel.Font = Enum.Font.SourceSansBold
+titleLabel.Parent = screenGui
+
+-- Create another TextLabel for the additional line
+local subtitleLabel = Instance.new("TextLabel")
+subtitleLabel.Size = UDim2.new(0, 400, 0, 50) -- Width: 400, Height: 50
+subtitleLabel.Position = UDim2.new(0.5, -200, 0.35, -25) -- Centered horizontally, below the title
+subtitleLabel.BackgroundTransparency = 1 -- Transparent background
+subtitleLabel.Text = "Lucky Raid Event Script" -- Change this text to whatever you want
+subtitleLabel.TextColor3 = Color3.new(1, 1, 1) -- White text
+subtitleLabel.TextScaled = true -- Automatically scale text to fit
+subtitleLabel.Font = Enum.Font.SourceSansBold
+subtitleLabel.Parent = screenGui
+
+-- Create a TextLabel for the timer
+local timerLabel = Instance.new("TextLabel")
+timerLabel.Size = UDim2.new(0, 400, 0, 50) -- Width: 400, Height: 50
+timerLabel.Position = UDim2.new(0.5, -200, 0.5, -25) -- Centered horizontally, 50% from the top
+timerLabel.BackgroundTransparency = 1 -- Transparent background
+timerLabel.Text = "0h 0m 0s" -- Initial timer text
+timerLabel.TextColor3 = Color3.new(1, 1, 1) -- White text
+timerLabel.TextScaled = true -- Automatically scale text to fit
+timerLabel.Font = Enum.Font.SourceSansBold
+timerLabel.Parent = screenGui
+
+-- Function to update the timer
+local startTime = os.time() -- Record the time when the script was injected
+local function updateTimer()
+    while true do
+        local elapsedTime = os.time() - startTime -- Calculate elapsed time in seconds
+
+        -- Convert elapsed time to hours, minutes, and seconds
+        local hours = math.floor(elapsedTime / 3600)
+        local minutes = math.floor((elapsedTime % 3600) / 60)
+        local seconds = math.floor(elapsedTime % 60)
+
+        -- Format the timer string as "0h 0m 0s"
+        timerLabel.Text = string.format("%dh %dm %ds", hours, minutes, seconds)
+
+        wait(1) -- Update every second
+    end
+end
+
+-- Start the timer update loop
+spawn(updateTimer)
+
+
+-- Your existing script starts here
 repeat wait() until game:IsLoaded()
 repeat wait() until game.Players.LocalPlayer
 local plr = game.Players.LocalPlayer
