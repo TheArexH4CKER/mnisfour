@@ -2,8 +2,12 @@ setfpscap(5)
 script_key = "YWLeSZotsWPngunFxSxgmyNfuViyvcJa";
 _G.GPROGRESS_MODE = "Hybrid"
 _G.GDO_LUCKY_WORLD_EVENT = true
+_G.GAUTO_RAID = true
 _G.GHATCH_LOBBY = true
 _G.GMAKE_LUCKY_GIFTS = true
+_G.GUSE_LEPRECHAUN_KEYS = true
+_G.GMAX_RAID_LEVEL = 100
+_G.GMIN_MULTIPLIER = 50 -- which egg to hatch
 _G.GEVENT_UPGRADES = {
    "LuckyRaidDamage",
    "LuckyRaidAttackSpeed",
@@ -14,6 +18,7 @@ _G.GEVENT_UPGRADES = {
    "LuckyRaidTitanicChest",
    "LuckyRaidHugeChest",
    "LuckyRaidXP",
+   --"LuckyRaidPetSpeed",
 }
 _G.GGFX_MODE = 1
 _G.GRANK_TO = 33
