@@ -9,7 +9,6 @@ _G.GMAX_EGG_SLOTS = 99
 _G.GMAX_EQUIP_SLOTS = 99
 _G.GHOLD_GIFTS = false
 _G.GHOLD_BUNDLES = false
-_G.GIGNORE_SLEDRACE = true
 _G.GPOTIONS = {"Damage","Coins"}
 _G.GENCHANTS = {"Tap Power", "Coins", "Treasure Hunter", "Strong Pets", "Criticals"}
 _G.GFRUITS = {"Apple","Banana","Orange","Rainbow","Pineapple","Watermelon"}
