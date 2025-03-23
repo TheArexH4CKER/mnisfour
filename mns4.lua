@@ -1,28 +1,9 @@
 setfpscap(5)
 script_key = "YWLeSZotsWPngunFxSxgmyNfuViyvcJa";
 _G.GPROGRESS_MODE = "Hybrid"
-_G.GDO_LUCKY_WORLD_EVENT = true
-_G.GAUTO_RAID = true
-_G.GHATCH_LOBBY = true
-_G.GMAKE_LUCKY_GIFTS = true
-_G.GUSE_LEPRECHAUN_KEYS = true
-_G.GMAX_RAID_LEVEL = 100
-_G.GMIN_MULTIPLIER = 50 -- which egg to hatch
-_G.GEVENT_UPGRADES = {
-   "LuckyRaidDamage",
-   "LuckyRaidAttackSpeed",
-   "LuckyRaidPets",
-   "LuckyRaidEggCost",
-   "LuckyRaidMoreCurrency",
-   "LuckyRaidBetterLoot",
-   "LuckyRaidTitanicChest",
-   "LuckyRaidHugeChest",
-   "LuckyRaidXP",
-   --"LuckyRaidPetSpeed",
-}
 _G.GGFX_MODE = 1
 _G.GRANK_TO = 33
-_G.GZONE_TO = 999 -- ONLY increase above 99 to go to world2, only when 100% sure, there is no way back for the "best zone" quests etc. 
+_G.GZONE_TO = 99 -- ONLY increase above 99 to go to world2, only when 100% sure, there is no way back for the "best zone" quests etc. 
 _G.GMAX_EGG_SLOTS = 99
 _G.GMAX_EQUIP_SLOTS = 99
 _G.GHOLD_GIFTS = false
