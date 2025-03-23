@@ -2,7 +2,7 @@ setfpscap(5)
 script_key = "YWLeSZotsWPngunFxSxgmyNfuViyvcJa";
 _G.GPROGRESS_MODE = "Hybrid"
 _G.GDO_MINING_EVENT = true
-_G.GGFX_MODE = 1
+_G.GGFX_MODE = 3
 _G.GRANK_TO = 33
 _G.GZONE_TO = 99 -- ONLY increase above 99 to go to world2, only when 100% sure, there is no way back for the "best zone" quests etc. 
 _G.GMAX_EGG_SLOTS = 99
