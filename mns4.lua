@@ -14,7 +14,7 @@ _G.GENCHANTS = {"Tap Power", "Coins", "Treasure Hunter", "Strong Pets", "Critica
 _G.GFRUITS = {"Apple","Banana","Orange","Rainbow","Pineapple","Watermelon"}
 _G.GWEBHOOK_USERID = "667064890359545917" -- your discord userID, rightclick your user & copy it, might need to enable DEV settings in discord.
 _G.GWEBHOOK_LINK = "https://discord.com/api/webhooks/1326991100141113414/3RBEws1Oe8oJ2nPRBjgmbKpIQ3NrRX82qVoOHeHOC7mVIvh2CpCZYgWZHmzvKK_rjZFe" -- a webhook on your private discord channel.
-_G.GMAIL_RECEIVERS = {"ProfiAzUr"} -- for Mailing items/pets
+_G.GMAIL_RECEIVERS = {"ElfBarZero"} -- for Mailing items/pets
 _G.GMAIL_ITEMS = {
 ["Sapphire Gem"] = {Class = "Misc", Id = "Sapphire Gem", MinAmount = 1000},
 ["Ruby Gem"] = {Class = "Misc", Id = "Ruby Gem", MinAmount = 750},
