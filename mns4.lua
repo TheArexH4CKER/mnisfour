@@ -18,7 +18,7 @@ _G.GMAIL_RECEIVERS = {"ProfiAzUr"} -- for Mailing items/pets
 _G.GMAIL_ITEMS = {
 ["Sapphire Gem"] = {Class = "Misc", Id = "Sapphire Gem", MinAmount = 1000},
 ["Ruby Gem"] = {Class = "Misc", Id = "Ruby Gem", MinAmount = 750},
-["Emerald Gem"] = {Class = "Misc", Id = "Emerald Gem", MinAmount = 25},
+["Emerald Gem"] = {Class = "Misc", Id = "Emerald Gem", MinAmount = 100},
 ["Amethyst Gem"] = {Class = "Misc", Id = "Amethyst Gem", MinAmount = 1},
 ["Rainbow Gem"] = {Class = "Misc", Id = "Rainbow Gem", MinAmount = 1},
 ["All Huges"] = {Class = "Pet", Id = "All Huges", MinAmount = 1},
