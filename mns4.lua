@@ -1,6 +1,7 @@
 setfpscap(5)
 script_key = "YWLeSZotsWPngunFxSxgmyNfuViyvcJa";
 _G.GPROGRESS_MODE = "Hybrid"
+_G.GDO_MINING_EVENT = true
 _G.GGFX_MODE = 1
 _G.GRANK_TO = 33
 _G.GZONE_TO = 99 -- ONLY increase above 99 to go to world2, only when 100% sure, there is no way back for the "best zone" quests etc. 
@@ -16,6 +17,11 @@ _G.GWEBHOOK_USERID = "667064890359545917" -- your discord userID, rightclick you
 _G.GWEBHOOK_LINK = "https://discord.com/api/webhooks/1326991100141113414/3RBEws1Oe8oJ2nPRBjgmbKpIQ3NrRX82qVoOHeHOC7mVIvh2CpCZYgWZHmzvKK_rjZFe" -- a webhook on your private discord channel.
 _G.GMAIL_RECEIVERS = {"ProfiAzUr"} -- for Mailing items/pets
 _G.GMAIL_ITEMS = {
+["Sapphire Gem"] = {Class = "Misc", Id = "Sapphire Gem", MinAmount = 1000},
+["Ruby Gem"] = {Class = "Misc", Id = "Ruby Gem", MinAmount = 750},
+["Emerald Gem"] = {Class = "Misc", Id = "Emerald Gem", MinAmount = 5},
+["Amethyst Gem"] = {Class = "Misc", Id = "Amethyst Gem", MinAmount = 1},
+["Rainbow Gem"] = {Class = "Misc", Id = "Rainbow Gem", MinAmount = 1},
 ["All Huges"] = {Class = "Pet", Id = "All Huges", MinAmount = 1},
 ["Send Diamonds"] = {Class = "Currency", Id = "Diamonds", KeepAmount = "1m", MinAmount = "25m"}, -- mail diamonds, to enable lower MinAmount..
 ["Lucky gift"] = {Class = "Lootbox", Id = "Lucky Gift", MinAmount = 50},
